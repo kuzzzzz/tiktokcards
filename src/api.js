@@ -1,4 +1,7 @@
 import axios from "axios";
+
+const API_KEY = process.env.API_KEY;
+
 const callApi = async (userName) => {
   const options = {
     method: "GET",
@@ -6,7 +9,7 @@ const callApi = async (userName) => {
     params: { user_name: userName },
     headers: {
       "X-RapidAPI-Host": "tiktok-scraper2.p.rapidapi.com",
-      "X-RapidAPI-Key": "0fed2f57b8mshdf90dd960715f6bp16f5d3jsn8906ad5ecd6f",
+      "X-RapidAPI-Key": API_KEY,
     },
   };
 
@@ -22,7 +25,7 @@ const callApi = async (userName) => {
       return profileInfo;
     })
     .catch(function (error) {
-      return error
+      return error;
     });
   return data;
 };
